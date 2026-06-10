@@ -1,0 +1,203 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nomeCompleto": "Admin Sistema",
+      "email": "admin@plataforma.com",
+      "senhaHash": "123456",
+      "dataCadastro": "01/01/2025"
+    },
+    {
+      "id": "2",
+      "nomeCompleto": "Maria Souza",
+      "email": "maria@email.com",
+      "senhaHash": "123456",
+      "dataCadastro": "15/02/2025"
+    },
+    {
+      "id": "3",
+      "nomeCompleto": "João Pereira",
+      "email": "joao@email.com",
+      "senhaHash": "123456",
+      "dataCadastro": "20/03/2025"
+    }
+  ],
+  "categorias": [
+    {
+      "id": "1",
+      "nome": "Programação",
+      "descricao": "Cursos de desenvolvimento de software"
+    },
+    {
+      "id": "2",
+      "nome": "Design",
+      "descricao": "Cursos de design gráfico e UX/UI"
+    },
+    {
+      "id": "3",
+      "nome": "Data Science",
+      "descricao": "Cursos de ciência de dados e machine learning"
+    }
+  ],
+  "cursos": [
+    {
+      "id": "1",
+      "titulo": "React do Zero ao Avançado",
+      "descricao": "Aprenda React do início ao avançado com projetos práticos",
+      "idInstrutor": "1",
+      "idCategoria": "1",
+      "nivel": "Iniciante",
+      "totalAulas": 40,
+      "totalHoras": 20,
+      "dataPublicacao": "01/01/2025"
+    },
+    {
+      "id": "2",
+      "titulo": "UX/UI Design Completo",
+      "descricao": "Domine os fundamentos de design de interfaces",
+      "idInstrutor": "2",
+      "idCategoria": "2",
+      "nivel": "Intermediário",
+      "totalAulas": 30,
+      "totalHoras": 15,
+      "dataPublicacao": "10/02/2025"
+    },
+    {
+      "id": "3",
+      "titulo": "Python para Data Science",
+      "descricao": "Análise de dados e visualização com Python",
+      "idInstrutor": "1",
+      "idCategoria": "3",
+      "nivel": "Avançado",
+      "totalAulas": 50,
+      "totalHoras": 30,
+      "dataPublicacao": "15/03/2025"
+    }
+  ],
+  "modulos": [
+    {
+      "id": "1",
+      "idCurso": "1",
+      "titulo": "Introdução ao React",
+      "ordem": 1
+    },
+    {
+      "id": "2",
+      "idCurso": "1",
+      "titulo": "Componentes e Props",
+      "ordem": 2
+    },
+    {
+      "id": "3",
+      "idCurso": "2",
+      "titulo": "Fundamentos de UX",
+      "ordem": 1
+    }
+  ],
+  "aulas": [
+    {
+      "id": "1",
+      "idModulo": "1",
+      "titulo": "O que é React?",
+      "tipoConteudo": "Vídeo",
+      "urlConteudo": "https://youtube.com/react-intro",
+      "duracaoMinutos": 15,
+      "ordem": 1
+    },
+    {
+      "id": "2",
+      "idModulo": "1",
+      "titulo": "Configurando o Ambiente",
+      "tipoConteudo": "Texto",
+      "urlConteudo": "",
+      "duracaoMinutos": 10,
+      "ordem": 2
+    },
+    {
+      "id": "3",
+      "idModulo": "2",
+      "titulo": "Criando Componentes",
+      "tipoConteudo": "Vídeo",
+      "urlConteudo": "https://youtube.com/react-components",
+      "duracaoMinutos": 20,
+      "ordem": 1
+    }
+  ],
+  "matriculas": [
+    {
+      "id": "1",
+      "idUsuario": "2",
+      "idCurso": "1",
+      "dataMatricula": "20/02/2025",
+      "dataConclusao": null
+    },
+    {
+      "id": "2",
+      "idUsuario": "3",
+      "idCurso": "1",
+      "dataMatricula": "25/03/2025",
+      "dataConclusao": null
+    }
+  ],
+  "progressoAulas": [
+    {
+      "id": "1",
+      "idUsuario": "2",
+      "idAula": "1",
+      "dataConclusao": "22/02/2025",
+      "status": "Concluído"
+    }
+  ],
+  "avaliacoes": [
+    {
+      "id": "1",
+      "idUsuario": "2",
+      "idCurso": "1",
+      "nota": 5,
+      "comentario": "Excelente curso! Muito bem explicado.",
+      "dataAvaliacao": "01/04/2025"
+    }
+  ],
+  "trilhas": [
+    {
+      "id": "1",
+      "titulo": "Trilha Full Stack",
+      "descricao": "Do front-end ao back-end completo",
+      "idCategoria": "1"
+    }
+  ],
+  "trilhasCursos": [
+    {
+      "id": "1",
+      "idTrilha": "1",
+      "idCurso": "1",
+      "ordem": 1
+    }
+  ],
+  "certificados": [],
+  "planos": [
+    {
+      "id": "1",
+      "nome": "Básico",
+      "descricao": "Acesso limitado a cursos selecionados",
+      "preco": 29.9,
+      "duracaoMeses": 1
+    },
+    {
+      "id": "2",
+      "nome": "Pro",
+      "descricao": "Acesso completo a todos os cursos",
+      "preco": 59.9,
+      "duracaoMeses": 1
+    },
+    {
+      "id": "3",
+      "nome": "Anual",
+      "descricao": "Acesso completo com desconto anual",
+      "preco": 499.9,
+      "duracaoMeses": 12
+    }
+  ],
+  "assinaturas": [],
+  "pagamentos": []
+}
