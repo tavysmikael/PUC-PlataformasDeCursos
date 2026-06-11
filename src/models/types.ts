@@ -1,5 +1,3 @@
-// === Entidades Core ===
-
 export interface IUsuario {
   id: string;
   nomeCompleto: string;
@@ -13,8 +11,6 @@ export interface ICategoria {
   nome: string;
   descricao: string;
 }
-
-// === Entidades de Conteúdo ===
 
 export interface ICurso {
   id: string;
@@ -45,8 +41,6 @@ export interface IAula {
   ordem: number;
 }
 
-// === Entidades de Interação ===
-
 export interface IMatricula {
   id: string;
   idUsuario: string;
@@ -72,7 +66,6 @@ export interface IAvaliacao {
   dataAvaliacao: string;
 }
 
-// === Entidades de Curadoria ===
 
 export interface ITrilha {
   id: string;
@@ -97,7 +90,6 @@ export interface ICertificado {
   dataEmissao: string;
 }
 
-// === Entidades de Negócio ===
 
 export interface IPlano {
   id: string;

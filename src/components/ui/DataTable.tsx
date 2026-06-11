@@ -52,7 +52,7 @@ export default function DataTable<T extends { id: string }>({
                     className="btn btn-danger btn-sm"
                     onClick={() => onRemover(item.id)}
                   >
-                    🗑️ Remover
+                    Remover
                   </button>
                 </td>
               )}

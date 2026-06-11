@@ -20,6 +20,20 @@
       "email": "joao@email.com",
       "senhaHash": "123456",
       "dataCadastro": "20/03/2025"
+    },
+    {
+      "nomeCompleto": "Teste User",
+      "email": "teste@teste.com",
+      "senhaHash": "123",
+      "dataCadastro": "11/06/2025",
+      "id": "mqaWt5E"
+    },
+    {
+      "nomeCompleto": "tavys",
+      "email": "tavys@asaf.com",
+      "senhaHash": "123456",
+      "dataCadastro": "11/06/2026",
+      "id": "69sYtPl"
     }
   ],
   "categorias": [
@@ -37,6 +51,11 @@
       "id": "3",
       "nome": "Data Science",
       "descricao": "Cursos de ciência de dados e machine learning"
+    },
+    {
+      "nome": "Marketing",
+      "descricao": "Cursos de marketing digital",
+      "id": "mohnhmO"
     }
   ],
   "cursos": [
@@ -196,6 +215,13 @@
       "descricao": "Acesso completo com desconto anual",
       "preco": 499.9,
       "duracaoMeses": 12
+    },
+    {
+      "nome": "Premium",
+      "descricao": "",
+      "preco": 99.9,
+      "duracaoMeses": 6,
+      "id": "b85fOti"
     }
   ],
   "assinaturas": [],

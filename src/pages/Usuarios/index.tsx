@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { IUsuario } from "../../models/types";
 import { listarUsuarios, criarUsuario, removerUsuario } from "../../services/usuarioService";
-import DataTable from "../../components/ui/DataTable";
+import DataTable, { Coluna } from "../../components/ui/DataTable";
 import FormField from "../../components/ui/FormField";
+import ApiStatus from "../../components/ui/ApiStatus";
 import { validarEmail, validarCamposObrigatorios } from "../../utils/validators";
-import { Coluna } from "../../components/ui/DataTable";
 
 const estadoInicial = { nomeCompleto: "", email: "", senhaHash: "" };
 
@@ -20,10 +20,20 @@ export default function Usuarios() {
   const [form, setForm] = useState(estadoInicial);
   const [erro, setErro] = useState("");
   const [sucesso, setSucesso] = useState("");
+  const [carregando, setCarregando] = useState(true);
+  const [erroApi, setErroApi] = useState("");
 
   const carregarDados = async () => {
-    const data = await listarUsuarios();
-    setUsuarios(data);
+    setCarregando(true);
+    setErroApi("");
+    try {
+      const data = await listarUsuarios();
+      setUsuarios(data);
+    } catch (error) {
+      setErroApi(error instanceof Error ? error.message : "Erro ao carregar dados.");
+    } finally {
+      setCarregando(false);
+    }
   };
 
   useEffect(() => { carregarDados(); }, []);
@@ -45,55 +55,69 @@ export default function Usuarios() {
     const emailJaExiste = usuarios.some((u) => u.email === form.email);
     if (emailJaExiste) return setErro("Este e-mail já está cadastrado.");
 
-    await criarUsuario({
-      ...form,
-      dataCadastro: new Date().toLocaleDateString("pt-BR"),
-    });
-    setForm(estadoInicial);
-    setSucesso("Usuário cadastrado com sucesso!");
-    carregarDados();
+    try {
+      await criarUsuario({
+        ...form,
+        dataCadastro: new Date().toLocaleDateString("pt-BR"),
+      });
+      setForm(estadoInicial);
+      setSucesso("Usuário cadastrado com sucesso!");
+      await carregarDados();
+    } catch (error) {
+      setErro(error instanceof Error ? error.message : "Erro ao cadastrar usuário.");
+    }
   };
 
   const handleRemover = async (id: string) => {
-    await removerUsuario(id);
-    carregarDados();
+    try {
+      await removerUsuario(id);
+      await carregarDados();
+    } catch (error) {
+      setErro(error instanceof Error ? error.message : "Erro ao remover usuário.");
+    }
   };
 
   return (
     <div className="container py-4">
       <h2 className="mb-4 fw-bold">Gestão de Usuários</h2>
 
-      <div className="card shadow-sm mb-4">
-        <div className="card-header bg-dark text-white fw-semibold">Novo Usuário</div>
-        <div className="card-body">
-          {erro && <div className="alert alert-danger">{erro}</div>}
-          {sucesso && <div className="alert alert-success">{sucesso}</div>}
+      <ApiStatus carregando={carregando} erroApi={erroApi} recarregar={carregarDados} />
 
-          <form onSubmit={handleSubmit}>
-            <div className="row">
-              <div className="col-md-4">
-                <FormField label="Nome Completo" name="nomeCompleto" value={form.nomeCompleto} onChange={handleChange} placeholder="Ex: João Silva" required />
-              </div>
-              <div className="col-md-4">
-                <FormField label="E-mail" name="email" type="email" value={form.email} onChange={handleChange} placeholder="Ex: joao@email.com" required />
-              </div>
-              <div className="col-md-4">
-                <FormField label="Senha" name="senhaHash" type="password" value={form.senhaHash} onChange={handleChange} placeholder="Mínimo 6 caracteres" required />
-              </div>
+      {!carregando && !erroApi && (
+        <>
+          <div className="card shadow-sm mb-4">
+            <div className="card-header bg-dark text-white fw-semibold">Novo Usuário</div>
+            <div className="card-body">
+              {erro && <div className="alert alert-danger">{erro}</div>}
+              {sucesso && <div className="alert alert-success">{sucesso}</div>}
+
+              <form onSubmit={handleSubmit}>
+                <div className="row">
+                  <div className="col-md-4">
+                    <FormField label="Nome Completo" name="nomeCompleto" value={form.nomeCompleto} onChange={handleChange} placeholder="Ex: João Silva" required />
+                  </div>
+                  <div className="col-md-4">
+                    <FormField label="E-mail" name="email" type="email" value={form.email} onChange={handleChange} placeholder="Ex: joao@email.com" required />
+                  </div>
+                  <div className="col-md-4">
+                    <FormField label="Senha" name="senhaHash" type="password" value={form.senhaHash} onChange={handleChange} placeholder="Mínimo 6 caracteres" required />
+                  </div>
+                </div>
+                <button type="submit" className="btn btn-warning fw-bold">➕ Cadastrar Usuário</button>
+              </form>
             </div>
-            <button type="submit" className="btn btn-warning fw-bold">➕ Cadastrar Usuário</button>
-          </form>
-        </div>
-      </div>
+          </div>
 
-      <div className="card shadow-sm">
-        <div className="card-header bg-dark text-white fw-semibold">
-          Usuários Cadastrados ({usuarios.length})
-        </div>
-        <div className="card-body">
-          <DataTable colunas={colunas} dados={usuarios} onRemover={handleRemover} />
-        </div>
-      </div>
+          <div className="card shadow-sm">
+            <div className="card-header bg-dark text-white fw-semibold">
+              Usuários Cadastrados ({usuarios.length})
+            </div>
+            <div className="card-body">
+              <DataTable colunas={colunas} dados={usuarios} onRemover={handleRemover} />
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }
