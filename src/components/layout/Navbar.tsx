@@ -28,7 +28,7 @@ export default function Navbar() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <Link className="navbar-brand fw-bold text-warning" to="/">
-          🎓 EduPlataforma
+          CURSOS TCS
         </Link>
 
         <button
