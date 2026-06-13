@@ -2,29 +2,15 @@
   "usuarios": [
     {
       "id": "1",
-      "nomeCompleto": "Admin Sistema",
+      "nomeCompleto": "Admin ",
       "email": "admin@plataforma.com",
       "senhaHash": "123456",
-      "dataCadastro": "01/01/2025"
+      "dataCadastro": "10/06/206"
     },
     {
-      "id": "2",
-      "nomeCompleto": "Maria Souza",
-      "email": "maria@email.com",
-      "senhaHash": "123456",
-      "dataCadastro": "15/02/2025"
-    },
-    {
-      "id": "3",
-      "nomeCompleto": "João Pereira",
-      "email": "joao@email.com",
-      "senhaHash": "123456",
-      "dataCadastro": "20/03/2025"
-    },
-    {
-      "nomeCompleto": "Teste User",
+      "nomeCompleto": "Teste",
       "email": "teste@teste.com",
-      "senhaHash": "123",
+      "senhaHash": "123456",
       "dataCadastro": "11/06/2025",
       "id": "mqaWt5E"
     },
@@ -68,7 +54,7 @@
       "nivel": "Iniciante",
       "totalAulas": 40,
       "totalHoras": 20,
-      "dataPublicacao": "01/01/2025"
+      "dataPublicacao": "10/06/2026"
     },
     {
       "id": "2",
@@ -79,7 +65,7 @@
       "nivel": "Intermediário",
       "totalAulas": 30,
       "totalHoras": 15,
-      "dataPublicacao": "10/02/2025"
+      "dataPublicacao": "10/06/2026"
     },
     {
       "id": "3",
@@ -90,7 +76,7 @@
       "nivel": "Avançado",
       "totalAulas": 50,
       "totalHoras": 30,
-      "dataPublicacao": "15/03/2025"
+      "dataPublicacao": "10/06/2026"
     }
   ],
   "modulos": [
@@ -103,13 +89,13 @@
     {
       "id": "2",
       "idCurso": "1",
-      "titulo": "Componentes e Props",
+      "titulo": "Componentes",
       "ordem": 2
     },
     {
       "id": "3",
       "idCurso": "2",
-      "titulo": "Fundamentos de UX",
+      "titulo": "Fundamentos",
       "ordem": 1
     }
   ],
@@ -119,7 +105,7 @@
       "idModulo": "1",
       "titulo": "O que é React?",
       "tipoConteudo": "Vídeo",
-      "urlConteudo": "https://youtube.com/react-intro",
+      "urlConteudo": "",
       "duracaoMinutos": 15,
       "ordem": 1
     },
@@ -137,7 +123,7 @@
       "idModulo": "2",
       "titulo": "Criando Componentes",
       "tipoConteudo": "Vídeo",
-      "urlConteudo": "https://youtube.com/react-components",
+      "urlConteudo": "",
       "duracaoMinutos": 20,
       "ordem": 1
     }
@@ -147,14 +133,14 @@
       "id": "1",
       "idUsuario": "2",
       "idCurso": "1",
-      "dataMatricula": "20/02/2025",
+      "dataMatricula": "10/06/2026",
       "dataConclusao": null
     },
     {
       "id": "2",
       "idUsuario": "3",
       "idCurso": "1",
-      "dataMatricula": "25/03/2025",
+      "dataMatricula": "10/06/2026",
       "dataConclusao": null
     }
   ],
@@ -163,7 +149,7 @@
       "id": "1",
       "idUsuario": "2",
       "idAula": "1",
-      "dataConclusao": "22/02/2025",
+      "dataConclusao": "12/06/2026",
       "status": "Concluído"
     }
   ],
@@ -173,15 +159,15 @@
       "idUsuario": "2",
       "idCurso": "1",
       "nota": 5,
-      "comentario": "Excelente curso! Muito bem explicado.",
-      "dataAvaliacao": "01/04/2025"
+      "comentario": "Excelente curso!",
+      "dataAvaliacao": "12/06/2026"
     }
   ],
   "trilhas": [
     {
       "id": "1",
       "titulo": "Trilha Full Stack",
-      "descricao": "Do front-end ao back-end completo",
+      "descricao": "Do frontend ao backEnd completo",
       "idCategoria": "1"
     }
   ],
